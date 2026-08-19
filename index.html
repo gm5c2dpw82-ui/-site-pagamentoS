@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#06265c">
+<title>Viação Boa Viagem</title>
+<style>
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;background:#f3f6fb;color:#092452}
+button,input{font:inherit}button{cursor:pointer}
+.header{background:linear-gradient(135deg,#06265c,#0b3474);color:#fff;padding:20px 18px 24px}
+.header-inner{max-width:760px;margin:auto;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.brand{font-weight:800;font-size:20px}.secure{font-size:12px;opacity:.9}
+.wrap{max-width:760px;margin:auto;padding:20px 14px 40px}
+.steps{display:flex;align-items:center;gap:5px;margin:4px 0 18px;font-size:11px}
+.step{padding:8px 10px;border-radius:999px;background:#e3e9f2;color:#66748b;white-space:nowrap}
+.step.on{background:#0b3474;color:#fff}
+.card{background:#fff;border:1px solid #e1e7f0;border-radius:18px;padding:20px;margin-bottom:14px;box-shadow:0 6px 22px #0924520d}
+h1{font-size:26px;margin:0 0 7px}h2{font-size:19px;margin:0 0 15px}
+.muted{color:#687791}.route{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:12px;margin:22px 0}
+.city{font-weight:800;font-size:19px}.arrow{font-size:27px;color:#3974ca;text-align:center}
+.small{font-size:11px}.row{display:flex;justify-content:space-between;gap:12px;padding:8px 0}
+.divider{height:1px;background:#e8edf4;margin:14px 0}.total{font-size:22px;font-weight:800}
+.notice{background:#edf5ff;border-radius:12px;padding:13px;font-size:13px;color:#345478;margin:15px 0}
+.btn{width:100%;border:0;border-radius:12px;padding:15px;background:#0a5bd7;color:white;font-weight:800;font-size:16px}
+.btn.alt{background:#e9eff8;color:#123765;margin-top:9px}
+.methods{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:16px 0}
+.method{border:2px solid #d5deeb;border-radius:12px;padding:13px;text-align:center;font-weight:700}
+.method.on{border-color:#0a5bd7;background:#f1f6ff}
+label{display:block;font-size:13px;font-weight:700;margin:12px 0 6px}
+input{width:100%;padding:13px;border:1px solid #ccd6e5;border-radius:10px;background:#fff}
+.qr{height:180px;width:180px;margin:18px auto;display:grid;place-items:center;border:12px solid #111;background:repeating-linear-gradient(45deg,#111 0 5px,#fff 5px 10px);font-size:0}
+.success{text-align:center;padding:30px 20px}.check{width:72px;height:72px;border-radius:50%;background:#dcf7e7;color:#15803d;display:grid;place-items:center;font-size:42px;margin:0 auto 18px}
+.ticket{text-align:left;border:1px dashed #b8c5d7;border-radius:14px;padding:15px;margin:20px 0}
+.footer{text-align:center;color:#78859a;font-size:11px;margin-top:18px}
+.hidden{display:none!important}
+@media(max-width:420px){.brand{font-size:18px}.secure{font-size:10px}.steps{font-size:10px}.step{padding:7px 8px}.city{font-size:17px}}
+</style>
+</head>
+<body>
+<header class="header"><div class="header-inner"><div class="brand">🚌 VIAÇÃO BOA VIAGEM</div><div class="secure">🔒 Demonstração</div></div></header>
+<div class="wrap">
+<div class="steps"><span id="s1" class="step on">1. Checkout</span><span>›</span><span id="s2" class="step">2. Pagamento</span><span>›</span><span id="s3" class="step">3. Confirmação</span></div>
+
+<section id="checkout">
+<div class="card"><h1>Revise sua viagem</h1><p class="muted">Confira os dados antes de continuar.</p>
+<div class="route"><div><div class="small muted">ORIGEM</div><div class="city">Brasília - DF</div><div class="muted">Rodoviária do Plano Piloto</div></div><div class="arrow">→</div><div><div class="small muted">DESTINO</div><div class="city">Belo Horizonte - MG</div><div class="muted">Rodoviária de Belo Horizonte</div></div></div>
+<div class="divider"></div><div class="row"><span>Data</span><strong>19/08/2026</strong></div><div class="row"><span>Saída</span><strong>08:30</strong></div><div class="row"><span>Passageiro</span><strong>Lays Soares</strong></div><div class="row"><span>Poltrona</span><strong>21 — Janela</strong></div></div>
+<div class="card"><h2>Resumo do pedido</h2><div class="row"><span>Passagem</span><strong>R$ 269,00</strong></div><div class="row"><span>Taxas</span><strong>Inclusas</strong></div><div class="divider"></div><div class="row total"><span>Total</span><span>R$ 269,00</span></div>
+<div class="notice">Esta é uma demonstração. Não informe dados reais de cartão.</div><button class="btn" onclick="showPage('payment')">Continuar para pagamento</button></div>
+</section>
+
+<section id="payment" class="hidden">
+<div class="card"><h1>Pagamento</h1><p class="muted">Escolha uma forma de pagamento.</p>
+<div class="methods"><div id="mPix" class="method on" onclick="method('pix')">PIX</div><div id="mCard" class="method" onclick="method('card')">Cartão</div></div>
+<div id="pix"><div class="notice"><strong>PIX demonstrativo</strong><br>O código abaixo é apenas ilustrativo e não gera uma cobrança real.</div><div class="qr">QR</div><label>Chave PIX de demonstração</label><input value="demo@boaviagem.local" readonly></div>
+<div id="card" class="hidden"><div class="notice">Use somente informações fictícias nesta demonstração.</div><label>Nome no cartão</label><input placeholder="Ex.: Lays Soares"><label>Número do cartão</label><input placeholder="0000 0000 0000 0000" inputmode="numeric"><div class="route" style="grid-template-columns:1fr 1fr"><div><label>Validade</label><input placeholder="MM/AA"></div><div><label>CVV</label><input placeholder="000" inputmode="numeric"></div></div></div>
+<button class="btn" onclick="showPage('success')">Simular pagamento</button><button class="btn alt" onclick="showPage('checkout')">Voltar</button></div>
+<div class="card"><div class="row"><span>Passageiro</span><strong>Lays Soares</strong></div><div class="row"><span>Trecho</span><strong>BSB → BH</strong></div><div class="row total"><span>Total</span><span>R$ 269,00</span></div></div>
+</section>
+
+<section id="success" class="hidden"><div class="card success"><div class="check">✓</div><h1>Pagamento aprovado</h1><p class="muted">Demonstração concluída com sucesso.</p>
+<div class="ticket"><div class="row"><span>Passageiro</span><strong>Lays Soares</strong></div><div class="row"><span>Trecho</span><strong>Brasília - DF → Belo Horizonte - MG</strong></div><div class="row"><span>Saída</span><strong>19/08/2026 às 08:30</strong></div><div class="row"><span>Poltrona</span><strong>21 — Janela</strong></div><div class="row"><span>Valor</span><strong>R$ 269,00</strong></div><div class="divider"></div><div class="small muted">Pedido: BV-DEMO-26900</div></div>
+<button class="btn" onclick="showPage('checkout')">Voltar ao início</button></div></section>
+<div class="footer">Site demonstrativo • Nenhum pagamento real é processado.</div>
+</div>
+<script>
+function showPage(p){
+  ['checkout','payment','success'].forEach(x=>document.getElementById(x).classList.toggle('hidden',x!==p));
+  ['s1','s2','s3'].forEach(x=>document.getElementById(x).classList.remove('on'));
+  document.getElementById(p==='checkout'?'s1':p==='payment'?'s2':'s3').classList.add('on');
+  scrollTo({top:0,behavior:'smooth'});
+}
+function method(m){
+  document.getElementById('pix').classList.toggle('hidden',m!=='pix');
+  document.getElementById('card').classList.toggle('hidden',m!=='card');
+  document.getElementById('mPix').classList.toggle('on',m==='pix');
+  document.getElementById('mCard').classList.toggle('on',m==='card');
+}
+</script>
+</body></html>
